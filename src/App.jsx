@@ -26,8 +26,11 @@ function App() {
   const [text,setText]=useState('')
   const [emoji,setEmoji]=useState(false);
   const [strong,setStrong]=useState(true)
-  const [uploadImgfile,setUploadImgfile]=useState(null);
+  const [uploadImgfile,setUploadImgfile]=useState("");
   const uploadimgURL=useRef(null) 
+  const fileValue=useRef()
+
+  console.log(fileValue.current);
 
   function handlechange(e){
       
@@ -64,7 +67,8 @@ function App() {
       });
       console.log("Document written with ID: ", docRef.id);
       setText('')
-      setUploadImgfile(null);
+      setUploadImgfile("");
+      fileValue.current.value="";
       uploadimgURL.current=null;
       setKey(prev=>prev+1);
       setEmoji(prev=>emoji ? false : false)
@@ -93,8 +97,7 @@ function App() {
 
     console.log(e.target.files[0]);
     setUploadImgfile(e.target.files[0]);
-    
-     
+         
     
     
   }
@@ -127,7 +130,7 @@ function App() {
         <div>
            <div className='emoji-file'>
              <img onClick={()=>setEmoji(!emoji)} className='emoji' src='https://cdn-icons-png.flaticon.com/128/1023/1023656.png'/>
-             <input type='file' onChange={(e)=>handleFile(e)}/>
+             <input type='file' ref={fileValue} onChange={(e)=>handleFile(e)}/>
              
            </div>
              {emoji ?  <EmojiPicker onEmojiClick={onEmojiClick} /> : <></>}
