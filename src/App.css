@@ -1,0 +1,85 @@
+body{
+  margin: 0;
+  background-image: url("/SL-112819-25550-39.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.outer-container{
+   
+  background-color: rgb(226, 226, 214);
+  max-width: 430px;
+  border: solid 20px rgba(4, 4, 71, 0.959);
+  border-color: gray rgb(75, 5, 5) gray rgba(4, 4, 71, 0.959);
+  padding-top: 10px;
+}
+
+
+
+.signin{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+
+.log-out{
+  
+  margin-bottom: 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  background-color: rgb(221, 201, 201);
+
+  &&:hover{
+    background-color: rgb(59, 8, 8);
+    cursor: pointer;
+    color: white;
+  }
+}
+
+.logout-container{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.emoji{
+  width: 25px;
+  height: 25px;
+  margin-left: 25px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.emoji-file{
+  
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+
+.emoji-file > input{
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 768px)
+{
+  .outer-container{
+    max-width: 300px;
+    margin-left: 1px;
+  }
+
+  .textarea{
+    width: 294px;
+  }
+}

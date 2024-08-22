@@ -1,0 +1,35 @@
+.google-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.logo-container{
+
+    position: relative;
+    padding: 20px 20px 20px 20px;
+    cursor: pointer;
+}
+
+.login-name{
+    position: absolute;
+    top: 0;
+    margin-top: 62px;
+    left:0;
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    width: 150px;
+    margin-left: -35px;
+    font-size: small;
+        
+}
+
+
+@media only screen and(max-width: 768px){
+   
+    .login-name{
+        width: 30px;
+    }
+}

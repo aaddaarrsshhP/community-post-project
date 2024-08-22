@@ -1,0 +1,26 @@
+
+.textarea{
+    resize: none;
+  }
+
+
+.submit-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+  }
+  
+  .submit-container > button{
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(7, 46, 71, 0.979);
+    padding: 5px 15px 5px 15px;
+    color: white;
+    cursor: pointer;
+
+    &&:hover{
+      background-color: rgba(4, 31, 48, 0.979);
+      color: white;
+      transform: scale(1.1);
+    }
+  }
