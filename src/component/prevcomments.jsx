@@ -120,10 +120,11 @@ querySnapshot.forEach((doc) => {
                       <img className='photourl' src={`${item.data.photoURL}`} />
                       <span>{item.data.name}</span>
                       <div className='img-text'> 
-                        
+                        <div>
                         {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
                         <p>{item.data.message}</p>
-                        
+                        </div>
+                        <h6>Reply</h6> 
                       </div> 
                       <div className='container-like-dislike'>
                       {item.data.likes ?.includes(uid) ?<button disabled={likeref} onClick={()=>Dislike(item.id)} > <img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126504.png'/> </button> 
