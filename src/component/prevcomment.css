@@ -22,6 +22,7 @@
     max-width: 220px;
     margin-left: 35px;
 
+    
 }
 
 .like-dislike{
@@ -33,7 +34,7 @@
 
 .container-like-dislike{
     position: relative;
-    margin-left: 20px;
+    margin-left: auto;
     margin-right: 25px;
     background-color: rgb(226, 226, 214);
 }
@@ -74,6 +75,11 @@
 
 @media only screen and (max-width: 768px)
 {
+
+    .container-like-dislike{
+        margin-left: 12px;
+    }
+    
     .img-text > p{
         max-width: 100px;
         font-size: small;
@@ -102,13 +108,6 @@
 
     .img-text{
         margin-left: 35px;
-        width: 120px;
-        border: solid 1px black;
-    }
-
-    .container-like-dislike{
-        margin-left: 20px;
-        border: solid 1px black;
     }
 
 }
