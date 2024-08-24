@@ -5,7 +5,7 @@ import "./prevcomment.css"
 import { useSelector } from 'react-redux';
 import { selectUid } from '../store/userSlice';
 import { query, orderBy,limit} from "firebase/firestore";
-
+import { Reply } from './Reply';
 
 
 
@@ -15,7 +15,8 @@ export const Prevcomments = ({value}) => {
     const [viewall,setViewall]=useState(false)
     const [comments,setComments]=useState([])
   //  const [num,setNum]=useState(0);
-    const uid=useSelector(selectUid) 
+    const uid=useSelector(selectUid)
+    const [reply,setReply]=useState(false) 
 
     async function Dislike(id)
     {
@@ -100,10 +101,13 @@ querySnapshot.forEach((doc) => {
                       <img className='photourl' src={`${item.data.photoURL}`} />
                       <span>{item.data.name}</span>
                       <div className='img-text'> 
-                        
+                       <div>
                         {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} /> : <></>}
                         <p>{item.data.message}</p>
-                        
+                       </div>
+                       <div>
+                         <small>Reply</small>
+                        </div>   
                       </div>                       <div className='container-like-dislike'>
                       {item.data.likes ?.includes(uid) ?<button disabled={likeref} onClick={()=>Dislike(item.id)} > <img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126504.png'/> </button> 
                       : <button disabled={likeref} onClick={()=>Like(item.id)} ><img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126473.png' /> </button>}
@@ -124,7 +128,9 @@ querySnapshot.forEach((doc) => {
                         {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
                         <p>{item.data.message}</p>
                         </div>
-                        <h6>Reply</h6> 
+                        <div>
+                          <small>Reply</small>
+                        </div>
                       </div> 
                       <div className='container-like-dislike'>
                       {item.data.likes ?.includes(uid) ?<button disabled={likeref} onClick={()=>Dislike(item.id)} > <img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126504.png'/> </button> 
@@ -143,10 +149,14 @@ querySnapshot.forEach((doc) => {
                       <img className='photourl' src={`${item.data.photoURL}`} />
                       <span>{item.data.name}</span>
                      <div className='img-text'> 
-                        
-                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} /> : <></>}
-                        <p>{item.data.message}</p>
-                        
+                        <div>
+                         {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} /> : <></>}
+                         <p>{item.data.message}</p>
+                        </div>
+                        <div>
+                           <small onClick={()=>setReply(false)} className='reply'>Reply</small>
+                           {reply ? <Reply value={{setReply,item}}/>:<></>}
+                        </div>
                       </div> 
                       <div className='container-like-dislike'>
                       {item.data.likes ?.includes(uid) ?<button disabled={likeref} onClick={()=>Dislike(item.id)} > <img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126504.png'/> </button> 
