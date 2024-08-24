@@ -88,3 +88,13 @@
     max-width: 300px;
     word-wrap: break-word;
 }
+
+
+@media only screen and (max-width: 768px){
+
+    .reply-inner{
+        min-width: 400px;
+        max-width: 400px;
+    }
+
+}
