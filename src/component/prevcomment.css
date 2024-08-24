@@ -8,9 +8,7 @@
 }
 
 .img-text > p{
-    width: 200px;
-    
-
+    max-width: 200px;
     word-wrap: break-word;
 }
 
@@ -21,14 +19,13 @@
 }
 
 .img-text{
-    width: 200px;
+    max-width: 220px;
     margin-left: 35px;
 
-    
 }
 
 .like-dislike{
-    width: 20px;
+    max-width: 20px;
     height: 20px;
     padding-bottom: 15px;
     background-color: rgb(226, 226, 214);
@@ -36,7 +33,7 @@
 
 .container-like-dislike{
     position: relative;
-    margin-left: auto;
+    margin-left: 20px;
     margin-right: 25px;
     background-color: rgb(226, 226, 214);
 }
@@ -78,21 +75,24 @@
 @media only screen and (max-width: 768px)
 {
     .img-text > p{
-        width: 100px;
-        margin-right: 15px;
+        max-width: 100px;
+        font-size: small;
         
     }
 
     .uploaded-img{
-        width: 100px;
+        width: 100%;
         height: 100px;
-        background-size: contain;
+        
     
         
     }
 
     .comment > span{
-        width: 60px;
+        max-width: 45px;
+        border: solid 1px black;
+        font-size: small;
+        word-wrap: break-word;
     }
 
     .comment{
@@ -102,6 +102,13 @@
 
     .img-text{
         margin-left: 35px;
+        width: 120px;
+        border: solid 1px black;
+    }
+
+    .container-like-dislike{
+        margin-left: 20px;
+        border: solid 1px black;
     }
 
 }

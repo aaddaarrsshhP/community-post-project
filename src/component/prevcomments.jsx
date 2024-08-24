@@ -101,7 +101,7 @@ querySnapshot.forEach((doc) => {
                       <span>{item.data.name}</span>
                       <div className='img-text'> 
                         
-                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} width="100px" height="100px"/> : <></>}
+                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} /> : <></>}
                         <p>{item.data.message}</p>
                         
                       </div>                       <div className='container-like-dislike'>
@@ -121,7 +121,7 @@ querySnapshot.forEach((doc) => {
                       <span>{item.data.name}</span>
                       <div className='img-text'> 
                         
-                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} width="100px" height="100px"/> : <></>}
+                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
                         <p>{item.data.message}</p>
                         
                       </div> 
@@ -143,7 +143,7 @@ querySnapshot.forEach((doc) => {
                       <span>{item.data.name}</span>
                      <div className='img-text'> 
                         
-                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} width="100px" height="100px"/> : <></>}
+                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} /> : <></>}
                         <p>{item.data.message}</p>
                         
                       </div> 
