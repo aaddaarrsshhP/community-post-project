@@ -16,7 +16,7 @@ export const Prevcomments = ({value}) => {
     const [comments,setComments]=useState([])
   //  const [num,setNum]=useState(0);
     const uid=useSelector(selectUid)
-    const [reply,setReply]=useState(false) 
+    const [replyid,setReplyid]=useState(false) 
 
     async function Dislike(id)
     {
@@ -78,6 +78,17 @@ querySnapshot.forEach((doc) => {
     console.log("firstoredata: ",data);
     setComments(data)
     setLikeref(false)
+  }
+
+  function handleReply(id)
+  {
+    setReplyid(id)
+  }
+
+  function handleReplyClose(){
+
+    setReplyid(false)
+    getData();
   }
 
     useEffect(()=>{
@@ -143,7 +154,7 @@ querySnapshot.forEach((doc) => {
             
             
             :comments.slice(0,8).map(item=>{
-              console.log(item.data.photoURL);
+              console.log(item);
                 return (
                     <div key={item.id} className='comment'>
                       <img className='photourl' src={`${item.data.photoURL}`} />
@@ -154,8 +165,8 @@ querySnapshot.forEach((doc) => {
                          <p>{item.data.message}</p>
                         </div>
                         <div>
-                           <small onClick={()=>setReply(false)} className='reply'>Reply</small>
-                           {reply ? <Reply value={{setReply,item}}/>:<></>}
+                           <small onClick={()=>handleReply(item.id)} className='reply'>{item.data.replies.length > 0 ? `Replies(${item.data.replies.length})` : "Reply"}</small>
+                           {replyid==item.id ? <Reply value={{handleReplyClose,item}}/>:<></>}
                         </div>
                       </div> 
                       <div className='container-like-dislike'>

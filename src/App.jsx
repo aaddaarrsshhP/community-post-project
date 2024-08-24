@@ -63,6 +63,7 @@ function App() {
         name: userName ? userName : "Anonymous",
         photoURL: photoURL ? photoURL : "https://cdn-icons-png.flaticon.com/128/1144/1144760.png",
         uploadImg: uploadimgURL.current,
+        replies: [],
         timestamp: serverTimestamp(),
       });
       console.log("Document written with ID: ", docRef.id);
