@@ -58,14 +58,14 @@ export const Reply = ({value}) => {
     <div ref={replyContainer} className='reply-container'>
         <div className='reply-inner'>
           <div className='your-reply'>
-          <textarea id='reply-text' placeholder='' value={text} onChange={(e)=>handlechange(e)} className='textarea' maxLength="250" cols="70" rows="10"></textarea><br></br>
+          <textarea id='reply-text' placeholder='' value={text} onChange={(e)=>handlechange(e)} className='reply-textarea' maxLength="250" cols="90" rows="5"></textarea><br></br>
            <small>Maximum 250 words</small>
            <div className='submit-container'><button  onClick={()=>handleSubmit()} disabled={text ? false: true}>Submit</button></div>
           </div>
          <div className='original-message'>
             <img src={value.item.data.photoURL} width="20px" height="20px"/>
             <h4 className='original-name'>{value.item.data.name}</h4>
-            {value.item.data.uploadImg ? <img src={value.item.data.uploadImg} className='uploaded-img' width="" height=""/> : <></>}
+            {value.item.data.uploadImg ? <img src={value.item.data.uploadImg} className='uploaded-img-original' width="" height=""/> : <></>}
             <h4 className='original-mess'>{value.item.data.message}</h4>
          </div>
          <div className='replies-tag'><h3>Replies</h3></div>

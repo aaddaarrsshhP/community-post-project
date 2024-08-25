@@ -21,6 +21,9 @@
     height: 500px;
     background-color: white;
     border: solid 1px black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
     overflow-y: auto;
 }
 
@@ -53,8 +56,9 @@
 }
 
 .previous-replies-url{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 90px;
 }
 
 .previous-replies{
@@ -79,7 +83,6 @@
     min-width: 150px;
     max-width: 150px;
     word-wrap: break-word;
-
 }
 
 .previous-message{
@@ -89,12 +92,48 @@
     word-wrap: break-word;
 }
 
+.reply-textarea{
+    resize: none;
+}
+
 
 @media only screen and (max-width: 768px){
 
     .reply-inner{
-        min-width: 400px;
-        max-width: 400px;
+        min-width: 300px;
+        max-width: 300px;
+        overflow-x: hidden;
+    }
+
+    .reply-textarea{
+        width: 300px;
+    }
+
+    .previous-replies{
+        margin-left: 1px; 
+        padding-left: 10px;
+    }
+
+    .previous-message{
+        margin-left: 20px;
+        word-wrap: break-word;
+        min-width: 125px;
+        max-width: 125px;
+    }
+
+    .previous-name{
+        min-width: 100px;
+        max-width: 100px;
+        word-wrap: break-word;
+    }
+
+    .uploaded-img-original{
+        
+        width: 120px;
+        height: 120px;
+    }
+    .original-message{
+        padding-top: 30px;
     }
 
 }
