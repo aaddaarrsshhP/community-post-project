@@ -65,19 +65,22 @@ export const Reply = ({value}) => {
          <div className='original-message'>
             <img src={value.item.data.photoURL} width="20px" height="20px"/>
             <h4 className='original-name'>{value.item.data.name}</h4>
-            {value.item.data.uploadImg ? <img src={value.item.data.uploadImg} className='uploaded-img-original' width="" height=""/> : <></>}
-            <h4 className='original-mess'>{value.item.data.message}</h4>
+           <div className='original-img-txt'> 
+             {value.item.data.uploadImg ? <img src={value.item.data.uploadImg} className='uploaded-img-original' width="" height=""/> : <></>}
+             <h4 className='original-mess'>{value.item.data.message}</h4>
+           </div> 
          </div>
-         <div className='replies-tag'><h3>Replies</h3></div>
+        {value.item.data.replies.length==0 ? <div className='replies-tag'><h3>No Replies</h3></div>
+        : <><div className='replies-tag'><h3>Replies</h3></div>
         <div className='previous-replies'>
-           {value.item.data.replies?.map((item,key)=>{
+           { value.item.data.replies.map((item,key)=>{
           return<div className='previous-replies-inner' key={key}>
             <img src={item.photoURL} className='previous-replies-url'/> 
             <h5 className='previous-name'>{item.name}</h5>
             <h5 className='previous-message'>{item.message}</h5>
           </div>
         }) }
-         </div>
+         </div> </>}
         </div>
     </div>
     </>)

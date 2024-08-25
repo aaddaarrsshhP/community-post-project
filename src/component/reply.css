@@ -18,7 +18,7 @@
 
 .reply-inner{
     min-width: 500px;
-    height: 500px;
+    height: 450px;
     background-color: white;
     border: solid 1px black;
     padding-left: 20px;
@@ -40,12 +40,21 @@
     max-width: 120px;
     margin-left: 10px;
     word-wrap: break-word;
+    
 } 
 
+.original-img-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    width: 190px;
+    max-width: 390px;
+}
+
 .original-mess{
-    margin-left: 10px;
-    min-width: 300px;
-    max-width: 300px;
+    
     word-wrap: break-word;
 }
 
@@ -83,6 +92,8 @@
     min-width: 150px;
     max-width: 150px;
     word-wrap: break-word;
+    font-size: small;
+    font-weight: 500;
 }
 
 .previous-message{
@@ -90,12 +101,18 @@
     min-width: 300px;
     max-width: 300px;
     word-wrap: break-word;
+    font-size: small;
+    font-weight: 500;
 }
 
 .reply-textarea{
     resize: none;
 }
 
+.uploaded-img-original{
+    width: 150px;
+    height: 150px;
+}
 
 @media only screen and (max-width: 768px){
 
@@ -103,6 +120,7 @@
         min-width: 300px;
         max-width: 300px;
         overflow-x: hidden;
+        height: 450px;   
     }
 
     .reply-textarea{
@@ -119,12 +137,16 @@
         word-wrap: break-word;
         min-width: 125px;
         max-width: 125px;
+        font-size: small;
+        font-weight: 500;
     }
 
     .previous-name{
         min-width: 100px;
         max-width: 100px;
         word-wrap: break-word;
+        font-size: small;
+        font-weight: 500;
     }
 
     .uploaded-img-original{
@@ -134,6 +156,13 @@
     }
     .original-message{
         padding-top: 30px;
+    }
+
+    .original-img-txt{
+        margin-left: 5px;
+        
+        min-width: 120px;
+        max-width: 120px;
     }
 
 }
