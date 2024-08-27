@@ -29,6 +29,7 @@ function App() {
   const [uploadImgfile,setUploadImgfile]=useState("");
   const uploadimgURL=useRef(null) 
   const fileValue=useRef()
+  const urlType=useRef(null);
   console.log(fileValue.current);
 
   function handlechange(e){
@@ -46,9 +47,9 @@ function App() {
       if(uploadImgfile)
       {
       const img=await ref(fileStorage,`Imgs/${v4()}`)
-      console.log(img);
+      console.log("ref",img);
       await uploadBytes(img,uploadImgfile).then(async (data)=>
-        {console.log(data)
+        {console.log("bytes",data)
         await getDownloadURL(data.ref).then(data=>uploadimgURL.current=data)
     
       })
@@ -62,6 +63,7 @@ function App() {
         name: userName ? userName : "Anonymous",
         photoURL: photoURL ? photoURL : "https://cdn-icons-png.flaticon.com/128/1144/1144760.png",
         uploadImg: uploadimgURL.current,
+        extensionType: urlType.current,
         replies: [],
         timestamp: serverTimestamp(),
       });
@@ -95,8 +97,10 @@ function App() {
 
   async function handleFile(e){
 
-    console.log(e.target.files[0]);
+    console.log("file format",e.target.files[0]);
     setUploadImgfile(e.target.files[0]);
+    urlType.current=e.target.files[0].type;
+    console.log(urlType.current);
          
   }
 

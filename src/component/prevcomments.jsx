@@ -137,7 +137,9 @@ querySnapshot.forEach((doc) => {
                       <span>{item.data.name}</span>
                       <div className='img-text'> 
                         <div>
-                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
+                        {item.data.uploadImg ? item.data.extensionType.includes("mp4") ? <video autoPlay loop>
+                        <source src={item.data.uploadImg} type="video/mp4" />
+                        </video>  :<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
                         <p>{item.data.message}</p>
                         </div>
                         <div>
