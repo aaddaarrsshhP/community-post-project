@@ -134,8 +134,8 @@ export const Reply = ({value}) => {
             <img src={item.photoURL} className='previous-replies-url'/> 
             <h5 className='previous-name'>{item.name}</h5>
             <div className='previous-reply-img'>
-              {item.uploadImg ? item.extensionType.includes("mp4") ? <video className='uploaded-img' autoPlay loop>
-                        <source src={item.data.uploadImg} type="video/mp4" />
+              {item.uploadImg ? item.extensionType.includes("mp4") ? <video controls className='uploaded-img' autoPlay loop>
+                        <source src={item.uploadImg} type="video/mp4" />
                         </video>
                :<img src={item.uploadImg} width="100px" height="100px"/> : <></>}
                <h5 className='previous-message'>{item.message}</h5>
