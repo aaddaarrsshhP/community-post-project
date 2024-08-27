@@ -117,7 +117,8 @@ querySnapshot.forEach((doc) => {
                         <p>{item.data.message}</p>
                        </div>
                        <div>
-                         <small>Reply</small>
+                           <small onClick={()=>handleReply(item.id)} className='reply'>{item.data.replies.length > 0 ? `Replies(${item.data.replies.length})` : "Reply"}</small>
+                           {replyid==item.id ? <Reply value={{handleReplyClose,item}}/>:<></>}
                         </div>   
                       </div>                       <div className='container-like-dislike'>
                       {item.data.likes ?.includes(uid) ?<button disabled={likeref} onClick={()=>Dislike(item.id)} > <img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126504.png'/> </button> 
@@ -140,7 +141,8 @@ querySnapshot.forEach((doc) => {
                         <p>{item.data.message}</p>
                         </div>
                         <div>
-                          <small>Reply</small>
+                           <small onClick={()=>handleReply(item.id)} className='reply'>{item.data.replies.length > 0 ? `Replies(${item.data.replies.length})` : "Reply"}</small>
+                           {replyid==item.id ? <Reply value={{handleReplyClose,item}}/>:<></>}
                         </div>
                       </div> 
                       <div className='container-like-dislike'>

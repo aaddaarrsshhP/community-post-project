@@ -38,15 +38,15 @@
     position: relative;
     margin-left: 25px;
     margin-right: 25px;
-    background-color: rgb(226, 226, 214);
+    background-color: rgb(226, 226, 214)    
 
 }
 
 .container-like-dislike > button{
     border: none;
-    background-color: rgb(226, 226, 214);
+    
     cursor: pointer;
-
+    background-color: rgb(226, 226, 214)
 }
 
 .photourl{

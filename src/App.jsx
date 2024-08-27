@@ -29,7 +29,6 @@ function App() {
   const [uploadImgfile,setUploadImgfile]=useState("");
   const uploadimgURL=useRef(null) 
   const fileValue=useRef()
-
   console.log(fileValue.current);
 
   function handlechange(e){
@@ -99,17 +98,16 @@ function App() {
     console.log(e.target.files[0]);
     setUploadImgfile(e.target.files[0]);
          
-    
-    
   }
 
- 
+  
 
   
 
  return (
     <>
-      <div className='outer-container'>
+      <div id='outerContainer' className='outer-container'>
+        
         <div className='signin'>
           <Signin />
           

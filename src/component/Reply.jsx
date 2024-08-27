@@ -100,7 +100,7 @@ export const Reply = ({value}) => {
   }
     
   return (<>
-    <div ref={replyContainer} className='reply-container'>
+    <div ref={replyContainer} className='reply-container' >
         <div className='reply-inner'>
           <div className='your-reply'>
           <textarea id='reply-text' placeholder='' value={text} onChange={(e)=>handlechange(e)} className='reply-textarea' maxLength="250" cols="90" rows="5"></textarea><br></br>
