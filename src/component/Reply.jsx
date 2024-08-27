@@ -5,6 +5,12 @@ import db from '../firebase/firebase';
 import { selectUserName,selectEmail,selectPhoto,selectUid } from '../store/userSlice';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import EmojiPicker from 'emoji-picker-react';
+import { v4 } from 'uuid';
+import { ref } from 'firebase/storage';
+import { fileStorage } from '../firebase/firebase';
+import { uploadBytes } from 'firebase/storage';
+import { getDownloadURL } from 'firebase/storage';
 
 export const Reply = ({value}) => {
 
@@ -15,6 +21,10 @@ export const Reply = ({value}) => {
   const photoURL=useSelector(selectPhoto); 
   const [text,setText]=useState("");
   const replyContainer=useRef();
+  const fileValue=useRef()
+  const [emoji,setEmoji]=useState(false)
+  const [uploadImgfile,setUploadImgfile]=useState("");
+  const uploadimgURL=useRef(null);
   console.log("value",value);
   window.addEventListener("click",(e)=>{
     
@@ -32,9 +42,25 @@ export const Reply = ({value}) => {
   }
 
    async function handleSubmit(){
-       
+    if(text || uploadImgfile)
+    {
+      console.log("submitting");
+      console.log("stateImg",uploadImgfile); 
        console.log("submiting");
+      
     try{
+      if(uploadImgfile)
+      {
+      const img=await ref(fileStorage,`Imgs/${v4()}`)
+      console.log(img);
+      await uploadBytes(img,uploadImgfile).then(async (data)=>
+        {console.log(data)
+        await getDownloadURL(data.ref).then(data=>uploadimgURL.current=data)
+    
+      })
+    }
+      console.log("replyImage: ",uploadimgURL.current);
+
     const documentRef = doc(db, "data", value.item.id);
       
       await updateDoc(documentRef, {
@@ -44,14 +70,33 @@ export const Reply = ({value}) => {
         email: email,
         message: text,
         uid: uid,
+        uploadImg: uploadimgURL.current,
       })
       });
+      fileValue.current.value="";
       value.handleReplyClose()
+
     }
     catch(e){
+      alert("Something went wrong while taking your reply")
+      value.handleReplyClose();
       console.log("error updating replies",e.message);
-    } 
+    }
+  }
+  else return ; 
       
+  }
+
+  function onEmojiClick(emoji)
+  {
+    setText(prev=>prev+emoji.emoji)
+  }
+
+  function handleFile(e){
+
+    console.log(e.target.files[0]);
+    setUploadImgfile(e.target.files[0]);
+         
   }
     
   return (<>
@@ -61,6 +106,15 @@ export const Reply = ({value}) => {
           <textarea id='reply-text' placeholder='' value={text} onChange={(e)=>handlechange(e)} className='reply-textarea' maxLength="250" cols="90" rows="5"></textarea><br></br>
            <small>Maximum 250 words</small>
            <div className='submit-container'><button  onClick={()=>handleSubmit()} disabled={text ? false: true}>Submit</button></div>
+          
+           <div className='emoji-file'>
+             <img onClick={()=>setEmoji(!emoji)} className='emoji' src='https://cdn-icons-png.flaticon.com/128/1023/1023656.png'/>
+             <input type='file' ref={fileValue} onChange={(e)=>handleFile(e)}/>
+             
+           </div>
+
+           {emoji ?  <EmojiPicker onEmojiClick={onEmojiClick} /> : <></>}
+
           </div>
          <div className='original-message'>
             <img src={value.item.data.photoURL} width="20px" height="20px"/>
@@ -77,7 +131,10 @@ export const Reply = ({value}) => {
           return<div className='previous-replies-inner' key={key}>
             <img src={item.photoURL} className='previous-replies-url'/> 
             <h5 className='previous-name'>{item.name}</h5>
-            <h5 className='previous-message'>{item.message}</h5>
+            <div className='previous-reply-img'>
+              {item.uploadImg ? <img src={item.uploadImg} width="100px" height="100px"/> : <></>}
+               <h5 className='previous-message'>{item.message}</h5>
+            </div>
           </div>
         }) }
          </div> </>}
