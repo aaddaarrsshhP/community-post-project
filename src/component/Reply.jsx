@@ -105,7 +105,7 @@ export const Reply = ({value}) => {
           <div className='your-reply'>
           <textarea id='reply-text' placeholder='' value={text} onChange={(e)=>handlechange(e)} className='reply-textarea' maxLength="250" cols="90" rows="5"></textarea><br></br>
            <small>Maximum 250 words</small>
-           <div className='submit-container'><button  onClick={()=>handleSubmit()} disabled={text ? false: true}>Submit</button></div>
+           <div className='submit-container'><button  onClick={()=>handleSubmit()} disabled={text || uploadImgfile ? false: true}>Submit</button></div>
           
            <div className='emoji-file'>
              <img onClick={()=>setEmoji(!emoji)} className='emoji' src='https://cdn-icons-png.flaticon.com/128/1023/1023656.png'/>
