@@ -25,6 +25,7 @@ export const Reply = ({value}) => {
   const [emoji,setEmoji]=useState(false)
   const [uploadImgfile,setUploadImgfile]=useState("");
   const uploadimgURL=useRef(null);
+  const extensiontype=useRef(null);
   console.log("value",value);
   window.addEventListener("click",(e)=>{
     
@@ -71,6 +72,7 @@ export const Reply = ({value}) => {
         message: text,
         uid: uid,
         uploadImg: uploadimgURL.current,
+        extensionType: extensiontype.current
       })
       });
       fileValue.current.value="";
@@ -96,7 +98,7 @@ export const Reply = ({value}) => {
 
     console.log(e.target.files[0]);
     setUploadImgfile(e.target.files[0]);
-         
+    extensiontype.current=e.target.files[0].type     
   }
     
   return (<>
@@ -132,7 +134,10 @@ export const Reply = ({value}) => {
             <img src={item.photoURL} className='previous-replies-url'/> 
             <h5 className='previous-name'>{item.name}</h5>
             <div className='previous-reply-img'>
-              {item.uploadImg ? <img src={item.uploadImg} width="100px" height="100px"/> : <></>}
+              {item.uploadImg ? item.extensionType.includes("mp4") ? <video className='uploaded-img' autoPlay loop>
+                        <source src={item.data.uploadImg} type="video/mp4" />
+                        </video>
+               :<img src={item.uploadImg} width="100px" height="100px"/> : <></>}
                <h5 className='previous-message'>{item.message}</h5>
             </div>
           </div>
