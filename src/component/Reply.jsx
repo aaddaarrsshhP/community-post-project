@@ -123,7 +123,7 @@ export const Reply = ({value}) => {
             <h4 className='original-name'>{value.item.data.name}</h4>
            <div className='original-img-txt'> 
              {value.item.data.uploadImg ? value.item.data.extensionType.includes("mp4") ? <video autoPlay loop muted className='uploaded-img' >
-                        <source src={video.item.data.item.uploadImg} type="video/mp4" />
+                        <source src={value.item.data.uploadImg} type="video/mp4" />
                         </video>  :<img src={value.item.data.uploadImg} className='uploaded-img-original' width="" height=""/> : <></>}
              <h4 className='original-mess'>{value.item.data.message}</h4>
            </div> 
