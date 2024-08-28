@@ -113,7 +113,9 @@ querySnapshot.forEach((doc) => {
                       <span>{item.data.name}</span>
                       <div className='img-text'> 
                        <div>
-                        {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} /> : <></>}
+                        {item.data.uploadImg ? item.data.extensionType.includes("mp4") ? <video autoPlay muted loop className='uploaded-img' >
+                        <source src={item.data.uploadImg} type="video/mp4" />
+                        </video>  :<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
                         <p>{item.data.message}</p>
                        </div>
                        <div>
@@ -137,7 +139,7 @@ querySnapshot.forEach((doc) => {
                       <span>{item.data.name}</span>
                       <div className='img-text'> 
                         <div>
-                        {item.data.uploadImg ? item.data.extensionType.includes("mp4") ? <video controls className='uploaded-img' autoPlay loop>
+                        {item.data.uploadImg ? item.data.extensionType.includes("mp4") ? <video autoPlay muted loop className='uploaded-img' >
                         <source src={item.data.uploadImg} type="video/mp4" />
                         </video>  :<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
                         <p>{item.data.message}</p>
@@ -165,7 +167,9 @@ querySnapshot.forEach((doc) => {
                       <span>{item.data.name}</span>
                      <div className='img-text'> 
                         <div>
-                         {item.data.uploadImg ?<img className='uploaded-img' src={item.data.uploadImg} /> : <></>}
+                         {item.data.uploadImg ? item.data.extensionType.includes("mp4") ? <video autoPlay muted loop className='uploaded-img' >
+                        <source src={item.data.uploadImg} type="video/mp4" />
+                        </video>  :<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
                          <p>{item.data.message}</p>
                         </div>
                         <div>

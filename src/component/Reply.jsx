@@ -122,7 +122,9 @@ export const Reply = ({value}) => {
             <img src={value.item.data.photoURL} width="20px" height="20px"/>
             <h4 className='original-name'>{value.item.data.name}</h4>
            <div className='original-img-txt'> 
-             {value.item.data.uploadImg ? <img src={value.item.data.uploadImg} className='uploaded-img-original' width="" height=""/> : <></>}
+             {value.item.data.uploadImg ? value.item.data.extensionType.includes("mp4") ? <video autoPlay loop muted className='uploaded-img' >
+                        <source src={video.item.data.item.uploadImg} type="video/mp4" />
+                        </video>  :<img src={value.item.data.uploadImg} className='uploaded-img-original' width="" height=""/> : <></>}
              <h4 className='original-mess'>{value.item.data.message}</h4>
            </div> 
          </div>
@@ -134,7 +136,7 @@ export const Reply = ({value}) => {
             <img src={item.photoURL} className='previous-replies-url'/> 
             <h5 className='previous-name'>{item.name}</h5>
             <div className='previous-reply-img'>
-              {item.uploadImg ? item.extensionType.includes("mp4") ? <video controls className='uploaded-img' autoPlay loop>
+              {item.uploadImg ? item.extensionType.includes("mp4") ? <video autoPlay loop muted className='uploaded-img' >
                         <source src={item.uploadImg} type="video/mp4" />
                         </video>
                :<img src={item.uploadImg} width="100px" height="100px"/> : <></>}
