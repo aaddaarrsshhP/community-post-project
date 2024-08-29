@@ -118,16 +118,7 @@ export const Reply = ({value}) => {
            {emoji ?  <EmojiPicker onEmojiClick={onEmojiClick} /> : <></>}
 
           </div>
-         <div className='original-message'>
-            <img src={value.item.data.photoURL} width="20px" height="20px"/>
-            <h4 className='original-name'>{value.item.data.name}</h4>
-           <div className='original-img-txt'> 
-             {value.item.data.uploadImg ? value.item.data.extensionType.includes("mp4") ? <video autoPlay loop muted className='uploaded-img' >
-                        <source src={value.item.data.uploadImg} type="video/mp4" />
-                        </video>  :<img src={value.item.data.uploadImg} className='uploaded-img-original' width="" height=""/> : <></>}
-             <h4 className='original-mess'>{value.item.data.message}</h4>
-           </div> 
-         </div>
+         
         {value.item.data.replies.length==0 ? <div className='replies-tag'><h3>No Replies</h3></div>
         : <><div className='replies-tag'><h3>Replies</h3></div>
         <div className='previous-replies'>

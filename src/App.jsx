@@ -43,6 +43,7 @@ function App() {
       {
         console.log("submitting");
         console.log("stateImg",uploadImgfile);
+        
     try {
       if(uploadImgfile)
       {
@@ -74,6 +75,8 @@ function App() {
       uploadimgURL.current=null;
       setKey(prev=>prev+1);
       setEmoji(prev=>emoji ? false : false)
+    
+      
     } catch (e) {
       console.error("Error adding document: ", e);
     }

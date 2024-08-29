@@ -109,8 +109,10 @@ querySnapshot.forEach((doc) => {
               console.log(item);
                 return (
                     <div key={item.id} className='comment'>
+                     <div className='username-url'> 
                       <img className='photourl' src={`${item.data.photoURL}`} />
                       <span>{item.data.name}</span>
+                    </div> 
                       <div className='img-text'> 
                        <div>
                         {item.data.uploadImg ? item.data.extensionType.includes("mp4") ? <video autoPlay muted loop className='uploaded-img' >
@@ -135,8 +137,10 @@ querySnapshot.forEach((doc) => {
               console.log(item);
                 return (
                     <div key={item.id} className='comment'>
+                     <div className='username-url'> 
                       <img className='photourl' src={`${item.data.photoURL}`} />
                       <span>{item.data.name}</span>
+                    </div> 
                       <div className='img-text'> 
                         <div>
                         {item.data.uploadImg ? item.data.extensionType.includes("mp4") ? <video autoPlay muted loop className='uploaded-img' >
@@ -144,15 +148,14 @@ querySnapshot.forEach((doc) => {
                         </video>  :<img className='uploaded-img' src={item.data.uploadImg}/> : <></>}
                         <p>{item.data.message}</p>
                         </div>
-                        <div>
+                        <div className='reply-like-count'>
                            <small onClick={()=>handleReply(item.id)} className='reply'>{item.data.replies.length > 0 ? `Replies(${item.data.replies.length})` : "Reply"}</small>
                            {replyid==item.id ? <Reply value={{handleReplyClose,item}}/>:<></>}
+                          <div className='like-dis-count'> {item.data.likes ?.includes(uid) ?<button disabled={likeref} onClick={()=>Dislike(item.id)} > <img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126504.png'/> </button> 
+                               : <button disabled={likeref} onClick={()=>Like(item.id)} ><img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126473.png' /> </button>}
+                                 <small className='like-count'>{item.data.likes.length}</small>
+                          </div>
                         </div>
-                      </div> 
-                      <div className='container-like-dislike'>
-                      {item.data.likes ?.includes(uid) ?<button disabled={likeref} onClick={()=>Dislike(item.id)} > <img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126504.png'/> </button> 
-                      : <button disabled={likeref} onClick={()=>Like(item.id)} ><img className='like-dislike' src='https://cdn-icons-png.flaticon.com/128/126/126473.png' /> </button>}
-                      <small className='like-count'>{item.data.likes.length}</small>
                       </div>
                     </div>
                 )
