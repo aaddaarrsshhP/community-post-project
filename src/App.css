@@ -21,6 +21,7 @@ body{
   border: solid 20px rgba(4, 4, 71, 0.959);
   border-color: gray rgb(75, 5, 5) gray rgba(4, 4, 71, 0.959);
   padding-top: 10px;
+  padding: 10px 10px 10px 10px;
 }
 
 
@@ -72,6 +73,10 @@ body{
   margin-top: 15px;
 }
 
+.textarea{
+  margin-left: 4px;
+}
+
 @media only screen and (max-width: 768px)
 {
   .outer-container{
@@ -81,5 +86,6 @@ body{
 
   .textarea{
     width: 294px;
+    margin-left: 0px;  
   }
 }

@@ -2,36 +2,38 @@
     display: flex;
     flex-direction: column;
     justify-content: first baseline;
-       
+    padding: 0 1px 0 5px;        
     column-gap: 5px;
     margin-left: 2px;
     margin-bottom: 25px;
-    
+    color: white;
+       
 }
 
-.img-text > p{
-    min-width: 200px;
-    word-wrap: break-word;
-}
 
+.img-text{
+    margin-left: 15px;
+    padding-left: 3px;
+    background-color: rgba(5, 17, 82, 0.596);
+    border-radius: 3px;
+}
 
 .username-url{
-
+    padding-left: 4px;
     display: flex;
     align-items: center;
     column-gap: 5px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    background-color: rgb(199, 190, 190);
+    border-radius: 3px;
+    color: black;
 }
 
 .uploaded-img{
-    width: 100%;
-    height: 150px;
-    
-    
-}
-
-.img-text{
-    max-width: 100%;   
-    margin-left: 35px;
+    width: 90%;
+    height: 100%;
+    margin-left: 20px;
     margin-right: 35px;
     word-wrap: break-word;
     margin-top: 15px;
@@ -45,7 +47,7 @@
     height: 20px;
     padding-bottom: 15px;
     border: none;
-    background-color: rgb(226, 226, 214);
+    background-color: rgb(199, 190, 190);
     cursor: pointer;
     
 }
@@ -54,7 +56,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+    border-radius: 3px;
+    background-color: rgb(199, 190, 190);
+    }
 
 
 
@@ -75,7 +79,7 @@
 
 .like-dis-count > button{
     border: none;
-    background-color: rgb(226, 226, 214);
+    background-color: rgb(199, 190, 190);
 }
 
 .like-count{
@@ -84,8 +88,8 @@
     bottom: 0;
     left: 0;
     margin-left: 15px;
-    
-    background-color: rgb(226, 226, 214);    
+    color: grey;
+    background-color: rgb(199, 190, 190);    
 }
 
 
@@ -120,15 +124,11 @@
         width: 100px;
     }
     
-    .img-text > p{
-        width: 100px;
-        font-size: small;
-        word-wrap: break-word;
-    }
+    
 
     .uploaded-img{
-        width: 100%;
-        height: 100px;
+        width: 80%;
+        height: 100%;
         
     
         
@@ -148,7 +148,7 @@
 
     .img-text{
         
-        width: 77%;
+        
         word-wrap: break-word;
     }
 
