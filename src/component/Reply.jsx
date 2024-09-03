@@ -125,13 +125,13 @@ export const Reply = ({value}) => {
            { value.item.data.replies.map((item,key)=>{
           return<div className='previous-replies-inner' key={key}>
             <img src={item.photoURL} className='previous-replies-url'/> 
-            <h5 className='previous-name'>{item.name}</h5>
+            <p className='previous-name'>{item.name}</p>
             <div className='previous-reply-img'>
               {item.uploadImg ? item.extensionType.includes("mp4") ? <video autoPlay loop muted className='uploaded-img-reply' >
                         <source src={item.uploadImg} type="video/mp4" />
                         </video>
-               :<img className='uploaded-img-reply' src={item.uploadImg} width="100px" height="100px"/> : <></>}
-               <h5 className='previous-message'>{item.message}</h5>
+               :<img className='uploaded-img-reply' src={item.uploadImg} width="100px" height="100px"/> : <></> }
+             {item.message ? <p className='previous-message'>{item.message}</p> : <></>}
             </div>
           </div>
         }) }
